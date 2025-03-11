@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import Home from './crm/Home';
 import reportWebVitals from './reportWebVitals';
+import Router from './routes';
 
 //Ant design React19 호환
 //import { unstableSetRender } from 'antd';
@@ -12,9 +11,12 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <React.StrictMode>
-    <Home />
-  </React.StrictMode>
+  <StrictMode>
+    <Router />
+  </StrictMode>
+  // <React.StrictMode>
+  //   <Home />
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

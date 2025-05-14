@@ -4,6 +4,7 @@ import {
     MenuFoldOutlined
 } from '@ant-design/icons';
 import { Button, Menu } from "antd";
+import { blue, blueDark, cyanDark, volcanoDark, presetDarkPalettes } from "@ant-design/colors";
 
 const headerItem = Array.from({ length : 5}).map((_, index) => ({
     key : index + 1,
@@ -19,7 +20,8 @@ const CustomHeader : React.FC<{collapsed:boolean, setCollapsed:Function}> = (pro
                 icon={ props.collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
                 onClick={() => props.setCollapsed(!props.collapsed)}
                 style={{
-                    backgroundColor : 'red',
+                    backgroundColor : blueDark.primary,
+                    color : 'white',
                     fontSize: '16px',
                     width: 64,
                     height: 64

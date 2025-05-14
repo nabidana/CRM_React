@@ -18,6 +18,7 @@ const CustomSideBar : React.FC = () => {
         <>
         <div className="demo-logo-vertical" />
         <Menu theme="dark"
+            style={menuStyle}
             mode="inline"
             defaultSelectedKeys={['1']}
             items={siderItem}
@@ -27,3 +28,7 @@ const CustomSideBar : React.FC = () => {
 }
 
 export default CustomSideBar;
+
+const menuStyle: React.CSSProperties = {
+    marginTop : 80,
+}

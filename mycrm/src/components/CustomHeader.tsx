@@ -3,13 +3,13 @@ import {
     MenuUnfoldOutlined,
     MenuFoldOutlined
 } from '@ant-design/icons';
-import { Button, Menu } from "antd";
+import { Button, Input, Menu, Space } from "antd";
 import { blue, blueDark, cyanDark, volcanoDark, presetDarkPalettes } from "@ant-design/colors";
 
-const headerItem = Array.from({ length : 5}).map((_, index) => ({
-    key : index + 1,
-    label : `nav ${index + 1}`,
-}));
+// const headerItem = Array.from({ length : 5}).map((_, index) => ({
+//     key : index + 1,
+//     label : `nav ${index + 1}`,
+// }));
 
 const CustomHeader : React.FC<{collapsed:boolean, setCollapsed:Function}> = (props) => {
 
@@ -27,13 +27,30 @@ const CustomHeader : React.FC<{collapsed:boolean, setCollapsed:Function}> = (pro
                     height: 64
                 }}
             />
-            <Menu
+            {/* <Menu
                 theme="dark"
                 mode="horizontal"
                 defaultSelectedKeys={['1']}
                 items={headerItem}
                 style={{ flex : 1, minWidth : 0}}
-            />
+            /> */}
+            <Space.Compact style={{
+                marginLeft : props.collapsed ? '28vh' : '15vh', width : '50vh'
+            }}>
+                <Input.Search placeholder="검색할 내용을 입력하세요." 
+                    enterButton
+                />
+            </Space.Compact>
+            <Button color="default" variant="outlined" style={{
+                marginLeft : '83vh'
+            }}>
+                Log in
+            </Button>
+            <Button color="orange" variant="solid" style={{
+                marginLeft : '3vh'
+            }}>
+                Register
+            </Button>
         </>
     )
 }

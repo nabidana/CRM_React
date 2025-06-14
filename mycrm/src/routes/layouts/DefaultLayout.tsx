@@ -40,15 +40,18 @@ const DefaultLayout : React.FC = () => {
             </Sider>
             <Layout>
                 <Header style={{ 
-                    display: 'flex', alignItems: 'center', padding: 0, background: colorBgContainer, position : 'fixed',
-                    top : 0, left : dimensions,
+                    display: 'flex', alignItems: 'center', width : '100%',
+                    padding: 0, position : 'fixed', top : 0, left : dimensions
                 }}>
                     <CustomHeader
                         collapsed={collapsed}
                         setCollapsed={setWidth}
                     />
                 </Header>
-                <Content style={{ margin : '24px 16px 0', overflow : 'initial'}}>
+                <Content style={{ 
+                    marginTop : '7vh', overflow : 'initial', marginLeft : (dimensions + 5),
+                    marginRight : '1vh'
+                }}>
                     <Outlet />
                 </Content>
                 <Footer style={{ textAlign : 'center'}}>

@@ -1,0 +1,10 @@
+antd 디자인
+npm install antd
+
+Redux Toolkit
+npm install @reduxjs/toolkit
+npm install react-redux
+
+i18n -> 타입스크립트 버전때문에 사용X 그냥 Redux로
+npm install i18next@22.5.1
+npm install react-i18next@12.3.1

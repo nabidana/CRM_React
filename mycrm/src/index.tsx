@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import Router from './routes';
 
+import './locales/i18n';
+
 //Ant design React19 호환
 //import { unstableSetRender } from 'antd';
 

@@ -1,7 +1,5 @@
 {
-    "Header" : {
-        "Search" : "Search",
-        "Login" : "Login",
-        "Register" : "Register"
-    }
+    "Search" : "Search...",
+    "Login" : "Login",
+    "Register" : "Register"
 }

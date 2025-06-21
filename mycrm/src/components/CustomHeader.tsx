@@ -3,8 +3,9 @@ import {
     MenuUnfoldOutlined,
     MenuFoldOutlined
 } from '@ant-design/icons';
-import { Button, Input, Menu, Space } from "antd";
+import { Button, Input, Menu, Select, Space } from "antd";
 import { blue, blueDark, cyanDark, volcanoDark, presetDarkPalettes } from "@ant-design/colors";
+import { useTranslation } from "react-i18next";
 
 // const headerItem = Array.from({ length : 5}).map((_, index) => ({
 //     key : index + 1,
@@ -12,6 +13,12 @@ import { blue, blueDark, cyanDark, volcanoDark, presetDarkPalettes } from "@ant-
 // }));
 
 const CustomHeader : React.FC<{collapsed:boolean, setCollapsed:Function}> = (props) => {
+
+    const { t, i18n } = useTranslation();
+
+    const localeChange = (value : string ) => {
+        i18n.changeLanguage(value);
+    }
 
     return(
         <>
@@ -37,19 +44,28 @@ const CustomHeader : React.FC<{collapsed:boolean, setCollapsed:Function}> = (pro
             <Space.Compact style={{
                 marginLeft : props.collapsed ? '28vh' : '15vh', width : '50vh'
             }}>
-                <Input.Search placeholder="검색할 내용을 입력하세요." 
+                <Input.Search placeholder={t("Search")+""}
                     enterButton
                 />
             </Space.Compact>
+            <Select
+                defaultValue="ko"
+                style={{ width : '10vh', textAlign : 'center', marginLeft : '10vh'}}
+                onChange={localeChange}
+                options={[
+                    { value : 'ko', label : '한국어' },
+                    { value : 'en', label : 'English'},
+                ]}
+            />
             <Button color="default" variant="outlined" style={{
-                marginLeft : '83vh'
+                marginLeft : '63vh'
             }}>
-                Log in
+                {t("Login")}
             </Button>
             <Button color="orange" variant="solid" style={{
                 marginLeft : '3vh'
             }}>
-                Register
+                {t("Register")}
             </Button>
         </>
     )

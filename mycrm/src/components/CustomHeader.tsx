@@ -3,7 +3,7 @@ import {
     MenuUnfoldOutlined,
     MenuFoldOutlined
 } from '@ant-design/icons';
-import { Button, Input, Menu, Select, Space } from "antd";
+import { Button, Input, Menu, Select, Space, Typography } from "antd";
 import { blue, blueDark, cyanDark, volcanoDark, presetDarkPalettes } from "@ant-design/colors";
 import { useTranslation } from "react-i18next";
 
@@ -14,11 +14,13 @@ import { useTranslation } from "react-i18next";
 
 const CustomHeader : React.FC<{collapsed:boolean, setCollapsed:Function}> = (props) => {
 
+    // 언어 설정
     const { t, i18n } = useTranslation();
-
     const localeChange = (value : string ) => {
         i18n.changeLanguage(value);
     }
+    // Antd - Text 사용
+    const { Text, Link } = Typography;
 
     return(
         <>

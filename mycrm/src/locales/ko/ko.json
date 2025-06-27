@@ -1,5 +1,6 @@
 {
     "Search" : "검색할 내용을 입력하세요.",
     "Login" : "로그인",
-    "Register" : "회원가입"
+    "Register" : "회원가입",
+    "Locale" : "언어"
 }

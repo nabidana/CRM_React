@@ -6,6 +6,7 @@ import {
 import { Button, Input, Menu, Select, Space, Typography } from "antd";
 import { blue, blueDark, cyanDark, volcanoDark, presetDarkPalettes } from "@ant-design/colors";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 // const headerItem = Array.from({ length : 5}).map((_, index) => ({
 //     key : index + 1,
@@ -20,7 +21,7 @@ const CustomHeader : React.FC<{collapsed:boolean, setCollapsed:Function}> = (pro
         i18n.changeLanguage(value);
     }
     // Antd - Text 사용
-    const { Text, Link } = Typography;
+    const { Text } = Typography;
 
     return(
         <>
@@ -59,11 +60,16 @@ const CustomHeader : React.FC<{collapsed:boolean, setCollapsed:Function}> = (pro
                     { value : 'en', label : 'English'},
                 ]}
             />
-            <Button color="default" variant="outlined" style={{
-                marginLeft : '63vh'
-            }}>
-                {t("Login")}
-            </Button>
+            <Link to="/login">
+                <Button color="default" 
+                    variant="outlined" 
+                    style={{
+                        marginLeft : '63vh'
+                    }}
+                >
+                    {t("Login")}
+                </Button>
+            </Link>
             <Button color="orange" variant="solid" style={{
                 marginLeft : '3vh'
             }}>

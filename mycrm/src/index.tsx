@@ -1,7 +1,7 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import Router from './routes';
+import Router from './routes/router';
 
 import './locales/i18n';
 

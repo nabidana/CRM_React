@@ -60,21 +60,6 @@ const CustomHeader : React.FC<{collapsed:boolean, setCollapsed:Function}> = (pro
                     { value : 'en', label : 'English'},
                 ]}
             />
-            <Link to="/login">
-                <Button color="default" 
-                    variant="outlined" 
-                    style={{
-                        marginLeft : '63vh'
-                    }}
-                >
-                    {t("Login")}
-                </Button>
-            </Link>
-            <Button color="orange" variant="solid" style={{
-                marginLeft : '3vh'
-            }}>
-                {t("Register")}
-            </Button>
         </>
     )
 }

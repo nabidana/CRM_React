@@ -1,6 +1,10 @@
 {
-    "Search" : "Search...",
-    "Login" : "Login",
-    "Register" : "Register",
-    "Locale" : "Language"
+    "Search" : "Search..."
+    , "Login" : "Login"
+    , "Locale" : "Language"
+    , "LoginPassword" : "Your Password"
+    , "LoginID" : "Your ID"
+    , "LoginRemember" : "Remember Your ID"
+    , "ForgetPassword" : "Forget Your Password? Find Your Password"
+    , "Company Name" : "Company Name"
 }

@@ -1,6 +1,10 @@
 {
-    "Search" : "검색할 내용을 입력하세요.",
-    "Login" : "로그인",
-    "Register" : "회원가입",
-    "Locale" : "언어"
+    "Search" : "검색할 내용을 입력하세요."
+    , "Login" : "로그인"
+    , "Locale" : "언어"
+    , "LoginPassword" : "사용자 비밀번호"
+    , "LoginID" : "사용자 ID"
+    , "LoginRemember" : "아이디 기억하기"
+    , "ForgetPassword" : "비밀번호 잃어버리셨나요? 비밀번호 찾기"
+    , "Company Name" : "회사 이름"
 }

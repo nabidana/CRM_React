@@ -4,6 +4,9 @@ import reportWebVitals from './reportWebVitals';
 import Router from './routes/router';
 
 import './locales/i18n';
+import GlobalDialog from './GlobalDialog';
+import { Provider } from 'react-redux';
+import { store } from './redux/IndexRedux';
 
 //Ant design React19 호환
 //import { unstableSetRender } from 'antd';
@@ -14,7 +17,10 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <StrictMode>
-    <Router />
+    <Provider store={store}>
+      <Router />
+      <GlobalDialog />
+    </Provider>
   </StrictMode>
   // <React.StrictMode>
   //   <Home />

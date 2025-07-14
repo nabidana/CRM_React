@@ -1,3 +1,30 @@
+import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "./IndexRedux";
+
+const initialState = {
+    dialogType : '',
+    visible : false,
+}
+
+export const DialogRedux = createSlice({
+    name : "dialogRedux",
+    initialState,
+    reducers : {
+        OpenDialog : (state, action) => {
+            const { modalType } = action.payload;
+            state.visible = true;
+            state.dialogType = modalType;
+        },
+        CloseDialog : (state) => {
+            state.visible = false;
+            state.dialogType = '';
+        }
+    }
+});
+
+export const { OpenDialog, CloseDialog } = DialogRedux.actions;
+export const SelectDialog = (state : RootState ) => state.dialog;
+export default DialogRedux.reducer;
 /*
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "./StoreIndex";
@@ -49,4 +76,3 @@ export const { OpenModal, CloseModal } = DialogRedux.actions;
 export const SelectModal = (state : RootState) => state.dialog;
 export default DialogRedux.reducer;
 */
-export const DialogRedux = '';

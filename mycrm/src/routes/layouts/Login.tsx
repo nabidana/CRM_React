@@ -2,6 +2,8 @@ import { Button, Checkbox, Image, Input, Layout, Select, Space, Tooltip, Typogra
 import loginImg from '../images/crmimage1.jpg';
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { useCRMDispatch } from "../../redux/IndexRedux";
+import { OpenDialog } from "../../redux/DialogRedux";
 
 const LoginLayout : React.FC = () => {
 
@@ -10,8 +12,9 @@ const LoginLayout : React.FC = () => {
     const localeChange = (value : string ) => {
         i18n.changeLanguage(value);
     }
-
+    // const { insertByDefault, functionResultFolderName } = useAppSelector(SelectFileCon);
     // const dispatch = useAppDispatch();
+    const dispatch = useCRMDispatch();
 
     return(
         <Layout style={{ 
@@ -96,10 +99,14 @@ const LoginLayout : React.FC = () => {
                     >
                             {t("LoginRemember")}
                     </Checkbox>
-                    <Link to="/findpwd"
+                    <Link to="#"
                         style={{
                             marginLeft : '5vh',
                             marginTop : '5vh',
+                        }}
+                        onClick={() => {
+                            console.log('clk');
+                            dispatch(OpenDialog({modalType : 'FindPwdDialog'}));
                         }}
                     >
                         {t("ForgetPassword")}

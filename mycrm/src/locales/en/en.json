@@ -7,4 +7,12 @@
     , "LoginRemember" : "Remember Your ID"
     , "ForgetPassword" : "Forget Your Password? Find Your Password"
     , "Company Name" : "Company Name"
+    , "FindPwdTitle" : "Find Password"
+    , "AuthenticationPhone" : "Authentication By Phone"
+    , "AuthenticationPhoneContent" : "Authenticate using your KT, SKT, or LG mobile phone number."
+    , "AuthenticationEmail" : "Authentication By E-mail"
+    , "AuthenticationEmailContent" : "Authenticate via email linked to your CRM."
+    , "AuthenticationAdmin" : "Authentication By Admin"
+    , "AuthenticationAdminContent" : "Contact the administrator by email."
+    , "Cancel" : "Cancel"
 }

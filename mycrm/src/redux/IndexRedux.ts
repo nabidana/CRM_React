@@ -1,10 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
+
 import localeRedux from './LocaleRedux';
+import dialogRedux from './DialogRedux';
 
 export const store = configureStore({
     reducer : {
         locale : localeRedux,
+        dialog : dialogRedux,
     },
     middleware : getDefaultMiddleware => getDefaultMiddleware({ serializableCheck : false })
 })

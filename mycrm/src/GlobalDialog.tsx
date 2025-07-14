@@ -1,31 +1,33 @@
+import FindPwd from "./Dialogs/FindPwd"
+import { SelectDialog } from "./redux/DialogRedux"
+import { useCRMSelector } from "./redux/IndexRedux"
 
-const ModalType = {
-
+const DialogType = {
+    FindPwdDialog : "FindPwdDialog",
 }
 
-const ModalComponent = [
-
+const DialogComponent = [
+    {
+        dialogType : DialogType.FindPwdDialog,
+        component : <FindPwd />
+    }
 ]
 
 const GlobalDialog = () => {
-
-    /*
-    const { modalType } = useAppSelector(SelectModal);
-    const findModal = Modal_Component.find( (modal) => {
-        return modal.type === modalType;
+    const { dialogType } = useCRMSelector(SelectDialog);
+    const findDialog = DialogComponent.find( (dialog) => {
+        return dialog.dialogType === dialogType;
     });
-    if(findModal === undefined) return;
-    const renderModal = () => {
-        return findModal.component;
+
+    if(findDialog === undefined) return(<></>);
+
+    const renderDialog = () => {
+        return findDialog.component;
     }
-    return(
-        <>{renderModal()}</>
-    )
-    */
 
     return(
-        <></>
-    )
+        <>{renderDialog()}</>
+    );
 }
 
 export default GlobalDialog;

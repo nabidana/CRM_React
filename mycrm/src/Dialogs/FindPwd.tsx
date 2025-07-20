@@ -1,11 +1,12 @@
-import { Button, Modal, Space, Typography } from "antd";
+import { Button, Modal, Space, Tabs, TabsProps, Typography } from "antd";
 import { useCRMDispatch, useCRMSelector } from "../redux/IndexRedux";
 import { CloseDialog, SelectDialog } from "../redux/DialogRedux";
 import { useTranslation } from "react-i18next";
 import { MailOutlined, PhoneOutlined, UserOutlined } from "@ant-design/icons";
 
-const FindPwd : React.FC = () => {
 
+const FindPwd : React.FC = () => {
+    
     const { t } = useTranslation();
     const { visible } = useCRMSelector(SelectDialog);
     const dispatch = useCRMDispatch();
@@ -36,6 +37,7 @@ const FindPwd : React.FC = () => {
                     {t("Cancel")}
                 </Button>
             }
+            onCancel={closeDialog}
         >
             <Space.Compact direction="vertical">
                 <Button 
@@ -128,15 +130,15 @@ export default FindPwd;
 
 const buttonStyle : React.CSSProperties = {
     marginTop : '1.5vh',
-    marginLeft : '3vh',
+    marginLeft : '7vh',
     width : '40vh',
-    height : '10vh'
+    height : '15vh'
 }
 
 const contentStyle : React.CSSProperties = {
     marginTop : '0.5vh', 
-    marginLeft : '2vh',
+    marginLeft : '4vh',
     textAlign : 'start',
-    width : '40vh',
+    width : '35vh',
     whiteSpace : 'normal'
 }

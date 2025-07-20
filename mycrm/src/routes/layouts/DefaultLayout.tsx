@@ -4,6 +4,7 @@ import CustomHeader from "../../components/CustomHeader";
 import CustomSideBar from "../../components/CustomSideBar";
 import CustomFooter from "../../components/CustomFooter";
 import { Outlet, ScrollRestoration } from "react-router-dom";
+import { MenuFoldOutlined, MenuUnfoldOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
 const { Header, Footer, Sider, Content} = Layout;
 const DefaultLayout : React.FC = () => {
     const {

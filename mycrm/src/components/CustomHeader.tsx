@@ -1,17 +1,27 @@
 import React from "react";
 import {
     MenuUnfoldOutlined,
-    MenuFoldOutlined
+    MenuFoldOutlined,
+    UserOutlined
 } from '@ant-design/icons';
-import { Button, Input, Menu, Select, Space, Typography } from "antd";
+import { Avatar, Button, Dropdown, Input, Menu, MenuProps, Select, Space, Typography } from "antd";
 import { blue, blueDark, cyanDark, volcanoDark, presetDarkPalettes } from "@ant-design/colors";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 
-// const headerItem = Array.from({ length : 5}).map((_, index) => ({
-//     key : index + 1,
-//     label : `nav ${index + 1}`,
-// }));
+const items : MenuProps['items'] = [
+    {
+        key : '1',
+        label : 'test1'
+    },
+    {
+        key : '2',
+        label : 'test2'
+    },
+    {
+        key : '3',
+        label : 'test3'
+    },
+]
 
 const CustomHeader : React.FC<{collapsed:boolean, setCollapsed:Function}> = (props) => {
 
@@ -20,8 +30,6 @@ const CustomHeader : React.FC<{collapsed:boolean, setCollapsed:Function}> = (pro
     const localeChange = (value : string ) => {
         i18n.changeLanguage(value);
     }
-    // Antd - Text 사용
-    const { Text } = Typography;
 
     return(
         <>
@@ -37,13 +45,6 @@ const CustomHeader : React.FC<{collapsed:boolean, setCollapsed:Function}> = (pro
                     height: 64
                 }}
             />
-            {/* <Menu
-                theme="dark"
-                mode="horizontal"
-                defaultSelectedKeys={['1']}
-                items={headerItem}
-                style={{ flex : 1, minWidth : 0}}
-            /> */}
             <Space.Compact style={{
                 marginLeft : props.collapsed ? '28vh' : '15vh', width : '50vh'
             }}>
@@ -60,6 +61,22 @@ const CustomHeader : React.FC<{collapsed:boolean, setCollapsed:Function}> = (pro
                     { value : 'en', label : 'English'},
                 ]}
             />
+            <Space.Compact
+                style={{
+                    marginLeft : '25%'
+                }}
+            >
+                <Dropdown menu={{items}}>
+                    <Space>
+                        <Avatar icon={<UserOutlined />} />
+                        <Typography.Text 
+                            style={{ color : 'white'}}
+                        >
+                            ASD
+                        </Typography.Text>
+                    </Space>
+                </Dropdown>
+            </Space.Compact>
         </>
     )
 }

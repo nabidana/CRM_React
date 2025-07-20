@@ -1,7 +1,7 @@
 import { Button, Checkbox, Image, Input, Layout, Select, Space, Tooltip, Typography } from "antd";
 import loginImg from '../images/crmimage1.jpg';
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCRMDispatch } from "../../redux/IndexRedux";
 import { OpenDialog } from "../../redux/DialogRedux";
 
@@ -15,6 +15,7 @@ const LoginLayout : React.FC = () => {
     // const { insertByDefault, functionResultFolderName } = useAppSelector(SelectFileCon);
     // const dispatch = useAppDispatch();
     const dispatch = useCRMDispatch();
+    const navigate = useNavigate();
 
     return(
         <Layout style={{ 
@@ -121,6 +122,7 @@ const LoginLayout : React.FC = () => {
                             height : '5vh',
                             fontSize : '3vh'
                         }}
+                        onClick={() => navigate('/index')}
                     >
                         {t("Login")}
                     </Button>

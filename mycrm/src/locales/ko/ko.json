@@ -15,4 +15,8 @@
     , "AuthenticationAdmin" : "관리자 문의"
     , "AuthenticationAdminContent" : "관리자 에게 이메일을 통해 문의합니다."
     , "Cancel" : "취소"
+    , "Dashboard" : "대시보드"
+    , "Deals" : "거래 관리"
+    , "Projects" : "프로젝트 관리"
+    , "Schedule" : "스케줄 관리"
 }

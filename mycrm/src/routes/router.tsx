@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom"
 import DefaultLayout from "./layouts/DefaultLayout";
 import Test from "./pages/Test";
 import LoginLayout from "./layouts/Login";
+import DealsIndex from "./pages/Deals/DealsIndex";
 
 const router = createBrowserRouter([
     {
@@ -10,7 +11,11 @@ const router = createBrowserRouter([
             {
                 path : '/index',
                 element : <Test />
-            }
+            },
+            {
+                path : '/deals',
+                element : <DealsIndex />,
+            },
         ]
     },
     {
@@ -22,6 +27,10 @@ const router = createBrowserRouter([
         element : <Navigate to="/login" replace />
     }
 ]);
+
+export const navigateTo = (path : string) => {
+    router.navigate(path);
+}
 
 export default function Router(){
     return <RouterProvider router={router}/>

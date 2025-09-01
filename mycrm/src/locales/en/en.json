@@ -15,4 +15,8 @@
     , "AuthenticationAdmin" : "Authentication By Admin"
     , "AuthenticationAdminContent" : "Contact the administrator by email."
     , "Cancel" : "Cancel"
+    , "Dashboard" : "Dashboard"
+    , "Deals" : "Deals"
+    , "Projects" : "Projects"
+    , "Schedule" : "Schedules"
 }

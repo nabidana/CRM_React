@@ -19,4 +19,7 @@
     , "Deals" : "Deals"
     , "Projects" : "Projects"
     , "Schedules" : "Schedules"
+    , "Filter" : "Search Filters"
+    , "Customer" : "Customer"
+    , "ProjetName" : "Projet Name"
 }

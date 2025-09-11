@@ -19,4 +19,7 @@
     , "Deals" : "거래 관리"
     , "Projects" : "프로젝트 관리"
     , "Schedules" : "스케줄 관리"
+    , "Filter" : "검색필터"
+    , "Customer" : "고객사"
+    , "ProjetName" : "프로젝트 명"
 }

@@ -4,12 +4,7 @@ import React from "react";
 import { ItemType } from "antd/es/menu/interface";
 import { navigateTo } from "../../routes/router";
 import { t } from "i18next";
-
-export type meusList = {
-    labelName : string;
-    iconName : string;
-    linkName : string;
-}
+import { meusList } from "../../types/CustomTypes";
 
 export const makeMenu = (menulist : meusList[]) => {
     let menus : MenuProps['items'] = [];

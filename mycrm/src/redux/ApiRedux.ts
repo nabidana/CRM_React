@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { RootState } from "./IndexRedux";
 import { MenuProps } from "antd";
-import { meusList } from "./ApiFunction/MenuFun";
+import { meusList } from "../types/CustomTypes";
 
 // type to const
 const userMenuList : meusList[] = [];

@@ -5,3 +5,12 @@ export type meusList = {
     iconName : string;
     linkName : string;
 }
+
+export type filterList = {
+    key : string;
+    labelName : string;
+}
+
+export type filterTagList = {
+    
+}

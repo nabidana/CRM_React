@@ -1,4 +1,4 @@
-import { Breadcrumb, Button, Dropdown, Layout, MenuProps, Space, theme } from "antd";
+import { Breadcrumb, Button, Checkbox, Dropdown, Input, Layout, MenuProps, Space, theme } from "antd";
 import React, { useMemo } from "react"
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -18,10 +18,11 @@ const DealsIndex : React.FC = () => {
     const { token } = useToken();
 
     const filterItem = useMemo(() => {
-        const items = getFilterItems();
-        return {
-            items//, onClick : handleMenuClick
-        }
+        return getFilterItems();
+    },[t]);
+
+    const tagItem = useMemo( () => {
+
     },[t]);
 
     return(
@@ -34,39 +35,57 @@ const DealsIndex : React.FC = () => {
                     ]}
                 >
                 </Breadcrumb>
-                <Dropdown 
-                    menu={filterItem}
-                    trigger={['click']}
-                    popupRender={(menu) => (
-                        <div
-                            style={{
-                                backgroundColor : token.colorBgElevated,
-                                borderRadius: token.borderRadiusLG,
-                                boxShadow: token.boxShadowSecondary
-                            }}
-                        >
-                            {React.cloneElement(
-                                menu as React.ReactElement<{
-                                    style : React.CSSProperties
-                                }>,
-                                { style : {
-                                    boxShadow: 'none',
+                <Space style={{
+                    marginLeft : '10vh',
+                    marginTop : '2vh'
+                }}>
+                    <Dropdown
+                        trigger={['click']}
+                        popupRender={() => (
+                            <div
+                                style={{
+                                    backgroundColor : token.colorBgElevated,
+                                    borderRadius: token.borderRadiusLG,
+                                    boxShadow: token.boxShadowSecondary
                                 }}
-                            )}
-                            <Space style={{ padding: 8 }}>
-                                <Button type="primary">Click me!</Button>
+                            >
+                                {/* {React.cloneElement(
+                                    menu as React.ReactElement<{
+                                        style : React.CSSProperties
+                                    }>,
+                                    { style : {
+                                        boxShadow: 'none',
+                                    }}
+                                )} */}
+                                <div style={{ padding: 8 }}>
+                                    {filterItem.map( (val) => {
+                                        return(
+                                            <span key={val.key}>
+                                                <Checkbox>{val.labelName}</Checkbox>
+                                                <br />
+                                            </span>
+                                        )
+                                    })}
+                                </div>
+                            </div>
+                        )}
+                    >
+                        <Button onClick={(e) => e.preventDefault()}>
+                            <Space>
+                                <FilterOutlined />
+                                {t('Filter')+''}
+                                <DownOutlined />
                             </Space>
-                        </div>
-                    )}
-                >
-                    <Button onClick={(e) => e.preventDefault()}>
-                        <Space>
-                            <FilterOutlined />
-                            {t('Filter')+''}
-                            <DownOutlined />
-                        </Space>
-                    </Button>
-                </Dropdown>
+                        </Button>
+                    </Dropdown>
+                    <Space.Compact style={{
+                        marginLeft : '3vh',
+                        width : '100vh'
+                    }}>
+                        <Input />
+                        <Button type="primary">Search</Button>
+                    </Space.Compact>
+                </Space>
             </Content>
         </Layout>
     )

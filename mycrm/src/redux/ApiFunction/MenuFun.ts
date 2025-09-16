@@ -10,7 +10,6 @@ export const makeMenu = (menulist : meusList[]) => {
     let menus : MenuProps['items'] = [];
     for(let i = 0 ; i < menulist.length; i++){
         const userMenuVal = menulist[i];
-        console.log('userMenuVal : ', userMenuVal);
         menus.push({
             key : (i+1).toString(),
             icon : getIcons(userMenuVal.iconName),

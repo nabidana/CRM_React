@@ -1,16 +1,22 @@
-import { MenuProps } from "antd"
 import { t } from "i18next";
+import { filterList } from "../types/CustomTypes";
 
+// 필터 목록 값 return 함수
 export const getFilterItems = () => {
-    let filters : MenuProps['items'] = [];
+    let filters : filterList[] = [];
     filters.push({
         key : '1',
-        label : ''+t('Customer')
+        labelName : ''+t('Customer')
     });
     filters.push({
         key : '2',
-        label : ''+t('ProjetName')
+        labelName : ''+t('ProjetName')
     })
 
     return filters;
+}
+
+// 필터 선택 시, input 앞에 filter 목록 return 함수
+export const getFilterTags = () => {
+
 }

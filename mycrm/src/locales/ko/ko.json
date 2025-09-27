@@ -22,4 +22,10 @@
     , "Filter" : "검색필터"
     , "Customer" : "고객사"
     , "ProjetName" : "프로젝트 명"
+    , "Title" : "제목"
+    , "New" : "새로운"
+    , "Important" : "중요"
+    , "Registrant" : "등록자"
+    , "Date" : "날짜"
+    , "Price" : "가격"
 }

@@ -22,4 +22,10 @@
     , "Filter" : "Search Filters"
     , "Customer" : "Customer"
     , "ProjetName" : "Projet Name"
+    , "Title" : "Title"
+    , "New" : "New"
+    , "Important" : "Important"
+    , "Registrant" : "Registrant"
+    , "Date" : "Date"
+    , "Price" : "Price"
 }

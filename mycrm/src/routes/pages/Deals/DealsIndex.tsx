@@ -1,4 +1,4 @@
-import { Breadcrumb, Button, Checkbox, Dropdown, Input, Layout, MenuProps, Space, theme } from "antd";
+import { Badge, Breadcrumb, Button, Card, Checkbox, Col, Dropdown, Input, Layout, List, MenuProps, Row, Space, Tag, theme, Typography } from "antd";
 import React, { useMemo } from "react"
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -6,6 +6,8 @@ import { meusList } from "../../../types/CustomTypes";
 import { getFilterItems } from "../../../function/FilterFun";
 import { Content } from "antd/es/layout/layout";
 import { DownOutlined, FilterOutlined } from "@ant-design/icons";
+import testimg from '../../images/logitec_102.jpg';
+import { getDealItems } from "../../../function/DealFun";
 
 const handleMenuClick : MenuProps['onClick'] = (e) => {
     
@@ -25,10 +27,27 @@ const DealsIndex : React.FC = () => {
 
     },[t]);
 
+    const dealItem = useMemo( () => {
+        return getDealItems();
+    },[t]);
+
+    const makeTag = (name : string) => {
+        if(name === 'New'){
+            return <Tag color="green">{t('New')+''}</Tag>
+        }else if(name === 'Important'){
+            return <Tag color="gold">{t('Important')+''}</Tag>
+        }else{
+            return <Tag>{name}</Tag>
+        }
+    }
+
     return(
-        <Layout>
-            <Content>
-                <Breadcrumb
+        <div style={{
+            padding : 24,
+            background : token.colorBgContainer,
+            borderRadius : token.borderRadiusLG
+        }}>
+            <Breadcrumb
                     items={[
                         { title : <Link to="/index">Home</Link>},
                         { title : t('Deals')}
@@ -73,7 +92,7 @@ const DealsIndex : React.FC = () => {
                         <Button onClick={(e) => e.preventDefault()}>
                             <Space>
                                 <FilterOutlined />
-                                {t('Filter')+''}
+                                    {t('Filter')+''}
                                 <DownOutlined />
                             </Space>
                         </Button>
@@ -86,9 +105,68 @@ const DealsIndex : React.FC = () => {
                         <Button type="primary">Search</Button>
                     </Space.Compact>
                 </Space>
-            </Content>
-        </Layout>
+                <List style={{
+                        marginTop : '5vh'
+                    }}
+                    grid={{
+                        gutter : 16,
+                        column : 4
+                    }}
+                    dataSource={dealItem}
+                    renderItem={(val) => (
+                        <List.Item
+                        >
+                            <Card
+                            >
+                                <Space>
+                                    {
+                                        val.taglist.map( (tagname) => {
+                                            return makeTag(tagname);
+                                        })
+                                    }
+                                </Space>
+                                <p>
+                                    <Typography.Title level={3}>
+                                        {val.title}
+                                    </Typography.Title>
+                                </p>
+                                <p>
+                                    {val.content}
+                                </p>
+                                <p>
+                                    <Typography.Text strong>
+                                        {t('Customer')+''} : {val.customer}
+                                    </Typography.Text>
+                                </p>
+                                <p>
+                                    <Typography.Text strong>
+                                        {t('Registrant')+''} : {val.reguser}
+                                    </Typography.Text>
+                                </p>
+                                <p>
+                                    <Typography.Text strong>
+                                        {t('Date')+''} : {val.date}
+                                    </Typography.Text>
+                                </p>
+                                <p>
+                                    <Typography.Text strong>
+                                        {t('Price')+''} : {val.value}
+                                    </Typography.Text>
+                                </p>
+                            </Card>
+                        </List.Item>
+                    )}
+                >
+                </List>
+        </div>
     )
+}
+
+const cardStyle : React.CSSProperties = {
+    marginTop : '3vh',
+    width : '10vh',
+    height : '15vh',
+    maxHeight : '15vh'
 }
 
 export default DealsIndex;

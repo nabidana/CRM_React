@@ -14,3 +14,20 @@ export type filterList = {
 export type filterTagList = {
     
 }
+
+export type dealItem = {
+    key : string;
+    title : string;
+    taglist : string[];
+    content : string;
+    date : string;
+    value : string;
+    reguser : string;
+    customer : string;
+}
+
+export type projectItem = {
+    key : string;
+    title : string;
+    content : string;
+}

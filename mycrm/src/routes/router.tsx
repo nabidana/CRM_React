@@ -3,6 +3,7 @@ import DefaultLayout from "./layouts/DefaultLayout";
 import Test from "./pages/Test";
 import LoginLayout from "./layouts/Login";
 import DealsIndex from "./pages/Deals/DealsIndex";
+import ProjectsIndex from "./pages/Projects/ProjectsIndex";
 
 const router = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
             {
                 path : '/deals',
                 element : <DealsIndex />,
+            },
+            {
+                path : '/projects',
+                element : <ProjectsIndex />,
             },
         ]
     },

@@ -7,6 +7,8 @@ import './locales/i18n';
 import GlobalDialog from './GlobalDialog';
 import { Provider } from 'react-redux';
 import { store } from './redux/IndexRedux';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 //Ant design React19 호환
 //import { unstableSetRender } from 'antd';
@@ -18,8 +20,10 @@ const root = ReactDOM.createRoot(
 root.render(
   <StrictMode>
     <Provider store={store}>
-      <Router />
-      <GlobalDialog />
+      <DndProvider backend={HTML5Backend}>
+        <Router />
+        <GlobalDialog />
+      </DndProvider>
     </Provider>
   </StrictMode>
   // <React.StrictMode>

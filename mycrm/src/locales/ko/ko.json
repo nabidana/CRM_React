@@ -28,4 +28,9 @@
     , "Registrant" : "등록자"
     , "Date" : "날짜"
     , "Price" : "가격"
+    , "InitiationPhase" : "착수 단계"
+    , "PlanningPhase" : "계획 단계"
+    , "ExecutionPhase" : "실행 단계"
+    , "MonitoringPhase" : "모니터링 및 통제 단계"
+    , "ClosingPhase" : "종료 단계"
 }

@@ -28,4 +28,9 @@
     , "Registrant" : "Registrant"
     , "Date" : "Date"
     , "Price" : "Price"
+    , "InitiationPhase" : "Initiation Phase"
+    , "PlanningPhase" : "Planning Phase"
+    , "ExecutionPhase" : "Execution Phase"
+    , "MonitoringPhase" : "Monitoring & Control Phase"
+    , "ClosingPhase" : "Closing Phase"
 }

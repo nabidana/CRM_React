@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 export type LocaleTypes = '' | 'ko' | 'en';
 
 export type meusList = {
@@ -30,4 +32,17 @@ export type projectItem = {
     key : string;
     title : string;
     content : string;
+    per : number;
+}
+
+export type projectMap = {
+    key : string;
+    item : projectItem[];
+}
+
+export interface ProjectCardProps {
+    id : any;
+    text : JSX.Element;
+    index : number;
+    moveCard : (dragIndex : number, hoverIndex : number) => void;
 }

@@ -1,7 +1,5 @@
 import { t } from "i18next";
 import { dealItem } from "../types/CustomTypes"
-import { JSX } from "react";
-
 
 // 거래 목록 뱉기
 export const getDealItems = () => {

@@ -42,7 +42,8 @@ const DefaultLayout : React.FC = () => {
             <Layout>
                 <Header style={{ 
                     display: 'flex', alignItems: 'center', width : '100%',
-                    padding: 0, position : 'fixed', top : 0, left : dimensions
+                    padding: 0, position : 'fixed', top : 0, left : dimensions,
+                    zIndex : 99999
                 }}>
                     <CustomHeader
                         collapsed={collapsed}

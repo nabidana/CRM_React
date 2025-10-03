@@ -2,12 +2,12 @@ import { Badge, Breadcrumb, Button, Card, Checkbox, Col, Dropdown, Input, Layout
 import React, { useMemo } from "react"
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { meusList } from "../../../types/CustomTypes";
-import { getFilterItems } from "../../../function/FilterFun";
+import { meusList } from "../../../global/GlobalTypes";
+import { getFilterItems } from "../../../global/FilterFun";
 import { Content } from "antd/es/layout/layout";
 import { DownOutlined, FilterOutlined } from "@ant-design/icons";
 import testimg from '../../images/logitec_102.jpg';
-import { getDealItems } from "../../../function/DealFun";
+import { getDealItems } from "./DealFun";
 
 const handleMenuClick : MenuProps['onClick'] = (e) => {
     

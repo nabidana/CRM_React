@@ -4,7 +4,7 @@ import reportWebVitals from './reportWebVitals';
 import Router from './routes/router';
 
 import './locales/i18n';
-import GlobalDialog from './GlobalDialog';
+import GlobalDialog from './global/GlobalDialog';
 import { Provider } from 'react-redux';
 import { store } from './redux/IndexRedux';
 import { DndProvider } from 'react-dnd';

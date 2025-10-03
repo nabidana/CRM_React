@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState} from "react";
 import { Button, Layout, Menu, theme } from "antd";
-import CustomHeader from "../../components/CustomHeader";
-import CustomSideBar from "../../components/CustomSideBar";
-import CustomFooter from "../../components/CustomFooter";
+import CustomHeader from "./CustomHeader";
+import CustomSideBar from "./CustomSideBar";
+import CustomFooter from "./CustomFooter";
 import { Outlet, ScrollRestoration } from "react-router-dom";
 import { MenuFoldOutlined, MenuUnfoldOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
 const { Header, Footer, Sider, Content} = Layout;
@@ -43,7 +43,7 @@ const DefaultLayout : React.FC = () => {
                 <Header style={{ 
                     display: 'flex', alignItems: 'center', width : '100%',
                     padding: 0, position : 'fixed', top : 0, left : dimensions,
-                    zIndex : 99999
+                    zIndex : 990
                 }}>
                     <CustomHeader
                         collapsed={collapsed}

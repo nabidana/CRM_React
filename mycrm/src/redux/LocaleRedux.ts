@@ -3,7 +3,7 @@ import { RootState } from "./IndexRedux";
 
 import enjson from '../locales/en/en.json';
 import kojson from '../locales/ko/ko.json';
-import { LocaleTypes } from "../types/CustomTypes";
+import { LocaleTypes } from "../global/GlobalTypes";
 
 const localeTypes : LocaleTypes = '';
 const initialState = {

@@ -4,14 +4,14 @@ import React from "react";
 import { ItemType } from "antd/es/menu/interface";
 import { navigateTo } from "../../routes/router";
 import { t } from "i18next";
-import { meusList } from "../../types/CustomTypes";
+import { meusList } from "../../global/GlobalTypes";
 
 export const makeMenu = (menulist : meusList[]) => {
     let menus : MenuProps['items'] = [];
     for(let i = 0 ; i < menulist.length; i++){
         const userMenuVal = menulist[i];
         menus.push({
-            key : (i+1).toString(),
+            key : userMenuVal.linkName,
             icon : getIcons(userMenuVal.iconName),
             label : ''+t(userMenuVal.labelName),
             onClick : () => {

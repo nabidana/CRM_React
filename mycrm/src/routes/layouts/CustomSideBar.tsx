@@ -1,12 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Menu, MenuProps } from "antd";
-import { DashboardOutlined, DollarOutlined, ProjectOutlined, ScheduleOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
-import i18n from 'i18next';
-import { navigateTo } from "../router";
+import { Menu } from "antd";
 import { useTranslation } from "react-i18next";
 import { useCRMDispatch, useCRMSelector } from "../../redux/IndexRedux";
 import { GetMenuItems, SelectApi } from "../../redux/ApiRedux";
-import { getIcons, makeMenu } from "../../redux/ApiFunction/MenuFun";
+import {  makeMenu } from "../../redux/ApiFunction/MenuFun";
 import { useLocation } from "react-router-dom";
 
 const CustomSideBar : React.FC = () => {
@@ -52,5 +49,5 @@ const CustomSideBar : React.FC = () => {
 export default CustomSideBar;
 
 const menuStyle: React.CSSProperties = {
-    marginTop : 80,
+    marginTop : '40%',
 }

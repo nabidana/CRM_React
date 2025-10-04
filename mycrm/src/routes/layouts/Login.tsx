@@ -19,25 +19,35 @@ const LoginLayout : React.FC = () => {
 
     return(
         <Layout style={{ 
-                marginTop : '15vh',
-                width : '150vh',
-                marginLeft : '20vh'
+                marginTop : '10%',
+                width : '80%',
+                marginLeft : '10%'
             }}
         >
-            <Space align="start">
-                <Image src={loginImg} 
+            <Space align="start" 
+                size="large" 
+                style={{
+                    width : '100%'
+                }}
+            >
+                <Image src={loginImg}
                     preview={false} 
                     style={{
-                        width : '100vh', 
-                        height : '60vh'
+                        width : '100%', 
+                        height: 'auto'
                     }}
                 />
-                <Space.Compact direction="vertical" size="large">
+                <Space direction="vertical"
+                    size='middle'
+                    style={{
+                        width : '500px',
+                    }}
+                >
                     <div 
                         style={{
-                            marginLeft : '5vh',
+                            marginLeft : '5%',
                             textAlign : 'center',
-                            height : '6vh'
+                            height : '1%'
                         }}
                     >
                         <Title>
@@ -46,7 +56,7 @@ const LoginLayout : React.FC = () => {
                     </div>
                     <Space 
                         style={{ 
-                            marginLeft : '5vh',
+                            marginLeft : '15%',
                         }}
                     >
                         <Title>
@@ -54,7 +64,7 @@ const LoginLayout : React.FC = () => {
                         </Title>
                         <Select
                             defaultValue="ko"
-                            style={{ marginLeft : '3vh'}}
+                            style={{ marginLeft : '10%'}}
                             onChange={localeChange}
                             options={[
                                 { value : 'ko', label : '한국어' },
@@ -68,13 +78,12 @@ const LoginLayout : React.FC = () => {
                         placement="topLeft"
                     >
                         <Input 
-                            placeholder={t("LoginID")+""}
                             style={{
-                                marginLeft : '4vh',
-                                width : '40vh',
-                                height : '5vh',
-                                marginTop : '2vh'
+                                marginLeft : '10%',
+                                width : '80%',
+                                marginTop : '2%'
                             }}
+                            placeholder={t("LoginID")+""}
                         />
                     </Tooltip>
                     <Tooltip
@@ -85,25 +94,24 @@ const LoginLayout : React.FC = () => {
                         <Input.Password
                             placeholder={t("LoginPassword")+""}
                             style={{
-                                marginLeft : '4vh',
-                                width : '40vh',
-                                height : '5vh',
-                                marginTop : '3vh',
+                                marginLeft : '10%',
+                                width : '80%',
+                                marginTop : '3%'
                             }}
                         />
                     </Tooltip>
                     <Checkbox
                         style={{
-                            marginLeft : '4vh',
-                            marginTop : '1vh'
+                            marginLeft : '10%',
+                            marginTop : '3%'
                         }}
                     >
                             {t("LoginRemember")}
                     </Checkbox>
                     <Link to="#"
                         style={{
-                            marginLeft : '5vh',
-                            marginTop : '5vh',
+                            marginLeft : '10%',
+                            marginTop : '5%',
                         }}
                         onClick={() => {
                             console.log('clk');
@@ -116,17 +124,16 @@ const LoginLayout : React.FC = () => {
                         color="danger" 
                         variant="solid"
                         style={{
-                            marginTop : '0.5vh',
-                            marginLeft : '5vh',
-                            width : '40vh',
-                            height : '5vh',
-                            fontSize : '3vh'
+                            marginTop : '1%',
+                            marginLeft : '10%',
+                            width : '80%',
+                            fontSize : '130%'
                         }}
                         onClick={() => navigate('/index')}
                     >
                         {t("Login")}
                     </Button>
-                </Space.Compact>
+                </Space>
             </Space>
         </Layout>
     );

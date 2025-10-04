@@ -40,21 +40,21 @@ const CustomHeader : React.FC<{collapsed:boolean, setCollapsed:Function}> = (pro
                 style={{
                     backgroundColor : blueDark.primary,
                     color : 'white',
-                    fontSize: '16px',
-                    width: 64,
-                    height: 64
+                    fontSize: '150%',
+                    width: '4%',
+                    height: '100%'
                 }}
             />
             <Space.Compact style={{
-                marginLeft : props.collapsed ? '28vh' : '15vh', width : '50vh'
+                marginLeft : props.collapsed ? '17%' : '10%', width : '25%'
             }}>
                 <Input.Search placeholder={t("Search")+""}
                     enterButton
                 />
             </Space.Compact>
             <Select
-                defaultValue="ko"
-                style={{ width : '10vh', textAlign : 'center', marginLeft : '10vh', zIndex : 991}}
+                defaultValue={i18n.language}
+                style={{ width : '5%', textAlign : 'center', marginLeft : '10%', zIndex : 991}}
                 onChange={localeChange}
                 options={[
                     { value : 'ko', label : '한국어' },

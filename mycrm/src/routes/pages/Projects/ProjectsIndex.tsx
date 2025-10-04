@@ -65,13 +65,15 @@ const ProjectsIndex : React.FC = () => {
                 return update(projectlist, {
                     [sourceIndex] : {
                         $set : {
-                            key : '',
+                            key : projectlist[sourceIndex].key,
                             item : update(projectlist[sourceIndex].item, {
                                 $splice : [
                                     [dragIndex, 1],
                                     [hoverIndex, 0, projectlist[sourceIndex].item[dragIndex] as projectItemType],
                                 ],
                             }),
+                            backgroundcolor : projectlist[sourceIndex].backgroundcolor,
+                            textcolor : projectlist[sourceIndex].textcolor
                         }
                     }
                 })
@@ -84,7 +86,9 @@ const ProjectsIndex : React.FC = () => {
                                 $splice : [
                                     [hoverIndex, 0, projectlist[sourceIndex].item[dragIndex] as projectItemType],
                                 ]
-                            })
+                            }),
+                            backgroundcolor : projectlist[targetIndex].backgroundcolor,
+                            textcolor : projectlist[targetIndex].textcolor
                         }
                     },
                     [sourceIndex] : {
@@ -94,66 +98,15 @@ const ProjectsIndex : React.FC = () => {
                                 $splice : [
                                     [dragIndex, 1]
                                 ]
-                            })
+                            }),
+                            backgroundcolor : projectlist[sourceIndex].backgroundcolor,
+                            textcolor : projectlist[sourceIndex].textcolor
                         }
                     },
                 })
             }
         })
     },[])
-    // update(projectlist, {
-    //     [key] : {
-    //         $set : {
-    //             key : '',
-    //             item : update(projectlist[key].item, {
-    //                 $splice : [
-    //                     [dragIndex, 1],
-    //                     [hoverIndex, 0, projectlist[key].item[dragIndex] as projectItemType],
-    //                 ],
-    //             }),
-    //         }
-    //     }
-    // })
-    // {
-    //     if(sourceIndex === targetIndex){
-    //         return update(projectlist, {
-    //             [sourceIndex] : {
-    //                 $set : {
-    //                     key : '',
-    //                     item : update(projectlist[sourceIndex].item, {
-    //                         $splice : [
-    //                             [dragIndex, 1],
-    //                             [hoverIndex, 0, projectlist[sourceIndex].item[dragIndex] as projectItemType],
-    //                         ],
-    //                     }),
-    //                 }
-    //             }
-    //         })
-    //     }else{
-    //         return update(projectlist, {
-    //             [targetIndex] : {
-    //                 $set : {
-    //                     key : projectlist[targetIndex].key,
-    //                     item : update(projectlist[targetIndex].item, {
-    //                         $splice : [
-    //                             [hoverIndex, 0, projectlist[sourceIndex].item[dragIndex] as projectItemType],
-    //                         ]
-    //                     })
-    //                 }
-    //             },
-    //             [sourceIndex] : {
-    //                 $set : {
-    //                     key : projectlist[sourceIndex].key,
-    //                     item : update(projectlist[sourceIndex].item, {
-    //                         $splice : [
-    //                             [dragIndex, 1]
-    //                         ]
-    //                     })
-    //                 }
-    //             },
-    //         })
-    //     }
-    // }
 
     return(
         <div style={{
@@ -169,7 +122,7 @@ const ProjectsIndex : React.FC = () => {
                 ]}
             />
             <List style={{
-                    marginTop : '5%'
+                    
                 }}
                 grid={{
                     gutter : 16,
@@ -177,23 +130,41 @@ const ProjectsIndex : React.FC = () => {
                 }}
                 dataSource={projectLists}
                 renderItem={(item : projectMap, parentIdx) => (
-                    <List style={{
-                            marginTop : '5%',
-                            width : '90%'
+                    <Space
+                        direction="vertical"
+                        style={{
+                            width : '100%'
                         }}
-                        itemLayout="horizontal"
-                        dataSource={item.item}
-                        renderItem={(val, idx) => (
-                            <ProjectCard
-                                id={val.key}
-                                index={idx}
-                                key={val.key}
-                                text={renderProjectCard(val)}
-                                moveCard={moveCard}
-                                parentIndex={parentIdx}
-                            />
-                        )}
-                    />
+                    >
+                        <div style={{
+                            width : '90%',
+                            textAlign : 'center',
+                            backgroundColor : item.backgroundcolor,
+                        }}>
+                            <Typography.Title level={4} style={{
+                                color : item.textcolor
+                            }}>
+                                {t(item.key)+''}
+                            </Typography.Title>
+                        </div>
+                        <List style={{
+                                marginTop : '5%',
+                                width : '90%'
+                            }}
+                            itemLayout="horizontal"
+                            dataSource={item.item}
+                            renderItem={(val, idx) => (
+                                <ProjectCard
+                                    id={val.key}
+                                    index={idx}
+                                    key={val.key}
+                                    text={renderProjectCard(val)}
+                                    moveCard={moveCard}
+                                    parentIndex={parentIdx}
+                                />
+                            )}
+                        />
+                    </Space>
                 )}
             />
             {/* <List style={{

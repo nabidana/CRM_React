@@ -28,10 +28,10 @@ const FindPwd : React.FC = () => {
                     variant="solid"
                     onClick={() => closeDialog()}
                     style={{
-                        marginRight : '2vh',
-                        width : '15vh',
-                        height : '4vh',
-                        fontSize : '3vh'
+                        marginRight : '5%',
+                        width : '20%',
+                        height : '5%',
+                        fontSize : '200%'
                     }}
                 >
                     {t("Cancel")}
@@ -129,16 +129,16 @@ const FindPwd : React.FC = () => {
 export default FindPwd;
 
 const buttonStyle : React.CSSProperties = {
-    marginTop : '1.5vh',
-    marginLeft : '7vh',
-    width : '40vh',
-    height : '15vh'
+    marginTop : '3%',
+    marginLeft : '10%',
+    width : '80%',
+    height : '15%'
 }
 
 const contentStyle : React.CSSProperties = {
-    marginTop : '0.5vh', 
-    marginLeft : '4vh',
+    marginTop : '5%', 
+    marginLeft : '5%',
     textAlign : 'start',
-    width : '35vh',
+    width : '100%',
     whiteSpace : 'normal'
 }

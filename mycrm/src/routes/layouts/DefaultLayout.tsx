@@ -1,15 +1,11 @@
-import React, { useCallback, useEffect, useRef, useState} from "react";
-import { Button, Layout, Menu, theme } from "antd";
+import React, { useEffect, useRef, useState} from "react";
+import { Layout } from "antd";
 import CustomHeader from "./CustomHeader";
 import CustomSideBar from "./CustomSideBar";
 import CustomFooter from "./CustomFooter";
 import { Outlet, ScrollRestoration } from "react-router-dom";
-import { MenuFoldOutlined, MenuUnfoldOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
 const { Header, Footer, Sider, Content} = Layout;
 const DefaultLayout : React.FC = () => {
-    const {
-        token : { colorBgContainer, borderRadiusLG},
-    } = theme.useToken();
     //[현재 state, state 를 변경하기 위한 함수]
     const [ collapsed, setCollapsed] = useState(false);
     const siderRef = useRef<HTMLDivElement>(null);
@@ -51,7 +47,7 @@ const DefaultLayout : React.FC = () => {
                     />
                 </Header>
                 <Content style={{ 
-                    marginTop : '7vh', overflow : 'initial', marginLeft : (dimensions + 5),
+                    marginTop : '4%', overflow : 'initial', marginLeft : (dimensions + 5),
                     marginRight : '1vh'
                 }}>
                     <Outlet />
@@ -67,7 +63,7 @@ const DefaultLayout : React.FC = () => {
 
 const siderStyle: React.CSSProperties = {
     overflow: 'auto',
-    height: '100vh',
+    height: '100%',
     position: 'fixed',
     insetInlineStart: 0,
     top: 0,

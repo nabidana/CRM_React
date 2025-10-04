@@ -10,6 +10,8 @@ export type projectItemType = {
 export type projectMap = {
     key : string;
     item : projectItemType[];
+    textcolor : string;
+    backgroundcolor : string;
 }
 
 export interface ProjectCardProps {

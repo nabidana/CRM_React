@@ -9,11 +9,26 @@ export const getProjectItems = () => {
     let lv5 : projectItemType[] = testMakeItem(5);
 
     const projectItems : projectMap[] = [
-        {key : 'InitiationPhase', item : lv1},
-        {key : 'PlanningPhase', item : lv2},
-        {key : 'ExecutionPhase', item : lv3},
-        {key : 'MonitoringPhase', item : lv4},
-        {key : 'ClosingPhase', item : lv5},
+        {
+            key : 'InitiationPhase', item : lv1, 
+            backgroundcolor : '#B2DFDB', textcolor : '#00796B'
+        },
+        {
+            key : 'PlanningPhase', item : lv2,
+            backgroundcolor : '#BBDEFB', textcolor : '#1565C0'
+        },
+        {
+            key : 'ExecutionPhase', item : lv3,
+            backgroundcolor : '#FFCC80', textcolor : '#E65100'
+        },
+        {
+            key : 'MonitoringPhase', item : lv4,
+            backgroundcolor : '#CE93D8', textcolor : '#6A1B9A'
+        },
+        {
+            key : 'ClosingPhase', item : lv5,
+            backgroundcolor : '#A5D6A7', textcolor : '#2E7D32'
+        },
     ]
 
     return projectItems;

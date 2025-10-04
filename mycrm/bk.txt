@@ -1,0 +1,3 @@
+cp -r mycrm/build/* /home/ubuntu/
+chmod -R 775 *
+rm -rf mycrm

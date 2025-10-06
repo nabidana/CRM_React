@@ -18,9 +18,9 @@ const FindPwd : React.FC = () => {
     return(
         <Modal
             title=
-                <Typography.Title style={{ textAlign : 'center'}}>
+                {<Typography.Title style={{ textAlign : 'center'}}>
                     {t("FindPwdTitle")}
-                </Typography.Title>
+                </Typography.Title>}
             open={visible}
             footer={
                 <Button

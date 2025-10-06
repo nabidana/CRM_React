@@ -114,7 +114,6 @@ const LoginLayout : React.FC = () => {
                             marginTop : '5%',
                         }}
                         onClick={() => {
-                            console.log('clk');
                             dispatch(OpenDialog({modalType : 'FindPwdDialog'}));
                         }}
                     >

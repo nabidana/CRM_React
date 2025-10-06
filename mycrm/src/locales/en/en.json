@@ -33,4 +33,6 @@
     , "ExecutionPhase" : "Execution Phase"
     , "MonitoringPhase" : "Monitoring & Control Phase"
     , "ClosingPhase" : "Closing Phase"
+    , "CalenderDetail" : "Calender Details"
+    , "AllDataLoadingComplete" : "All data loading complete"
 }

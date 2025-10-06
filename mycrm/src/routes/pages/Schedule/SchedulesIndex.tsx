@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 
 import type { Dayjs } from 'dayjs';
 import dayLocaleData from 'dayjs/plugin/localeData';
-import { getScheduleListData } from "./SchedulesFun";
+import { findItems, getScheduleListData } from "./SchedulesFun";
 import { useEffect, useState } from "react";
-import { dayDataListType, dayDataType, SchedulesDataTypes } from "./SchedulesTypes";
+import { dayDataType, SchedulesDataTypes } from "./SchedulesTypes";
+import { useCRMDispatch } from "../../../redux/IndexRedux";
+import { OpenDialog } from "../../../redux/DialogRedux";
 
 const { useToken } = theme;
 
@@ -14,6 +16,8 @@ const SchedulesIndex : React.FC = () => {
 
     const { t, i18n } = useTranslation();
     const { token } = useToken();
+
+    const dispatch = useCRMDispatch();
 
     const [ scheduleList, setScheduleList ] = useState<SchedulesDataTypes[]>([]);
 
@@ -23,29 +27,32 @@ const SchedulesIndex : React.FC = () => {
         setScheduleList(data);
     },[])
 
-    useEffect(() => {
-        console.log('scheduleList : ', scheduleList);
-    },[scheduleList])
-
     const cellRender : CalendarProps<Dayjs>['cellRender'] = (current, info) => {
         if(info.type === 'date'){
-            const dayDataList = scheduleList.filter(item => 
-                item.year === current.year() && item.month === (current.month()+1)
+            const datelist = findItems(
+                scheduleList, current.year(), (current.month()+1), 'daterender', current.date()
             );
-            const dataList = dayDataList.length === 1 ? 
-            dayDataList[0].item.filter(item => item.day === current.date())
-            :
-            [];
-            console.log((current.month()+1)+'월 '+current.date()+' : ', dataList);
-            return dateCellRender(
-                dataList.length === 1 ? dataList[0].item : []
-            );
+            return dateCellRender(Array.isArray(datelist) ? datelist : []);
+            // const dayDataList = scheduleList.filter(item => 
+            //     item.year === current.year() && item.month === (current.month()+1)
+            // );
+            // const dataList = dayDataList.length === 1 ? 
+            // dayDataList[0].item.filter(item => item.day === current.date())
+            // :
+            // [];
+            // return dateCellRender(
+            //     dataList.length === 1 ? dataList[0].item : []
+            // );
         };
         if(info.type === 'month'){
-            const dayDataList = scheduleList.filter(item => 
-                item.year === current.year() && item.month === (current.month()+1)
-            );
-            return monthCellRender((current.month()+1), dayDataList.length);
+            const monthnum = findItems(
+                scheduleList, current.year(), (current.month()+1), 'monthrender'
+            )
+            return( (current.month()+1), typeof monthnum === 'number' ? monthnum : 0);
+            // const dayDataList = scheduleList.filter(item => 
+            //     item.year === current.year() && item.month === (current.month()+1)
+            // );
+            // return monthCellRender((current.month()+1), dayDataList.length);
         };
     }
 
@@ -64,6 +71,15 @@ const SchedulesIndex : React.FC = () => {
                 ]}
             />
             <Calendar
+                onSelect={(current: Dayjs, _) => {
+                    const itemlist = findItems(
+                        scheduleList, current.year(), (current.month()+1), 'daterender', current.date()
+                    );
+                    dispatch(OpenDialog({
+                        modalType : 'CalenderDetailDialog',
+                        items : itemlist,
+                    }));
+                }}
                 cellRender={cellRender}
                 headerRender={ ({value, type, onChange, onTypeChange }) => {
                     const year = value.year();

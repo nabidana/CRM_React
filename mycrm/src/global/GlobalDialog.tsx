@@ -1,15 +1,22 @@
+import { useEffect } from "react"
+import CalenderDetail from "../Dialogs/CalenderDetail"
 import FindPwd from "../Dialogs/FindPwd"
 import { SelectDialog } from "../redux/DialogRedux"
 import { useCRMSelector } from "../redux/IndexRedux"
 
 const DialogType = {
     FindPwdDialog : "FindPwdDialog",
+    CalenderDetailDialog : "CalenderDetailDialog",
 }
 
 const DialogComponent = [
     {
         dialogType : DialogType.FindPwdDialog,
-        component : <FindPwd />
+        component : <FindPwd />,
+    },
+    {
+        dialogType : DialogType.CalenderDetailDialog,
+        component : <CalenderDetail />,
     }
 ]
 

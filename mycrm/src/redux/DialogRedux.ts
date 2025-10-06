@@ -1,9 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "./IndexRedux";
+import { dayDataType } from "../routes/pages/Schedule/SchedulesTypes";
+
+const dayDataList : dayDataType[] = [];
 
 const initialState = {
     dialogType : '',
     visible : false,
+    items : dayDataList,
 }
 
 export const DialogRedux = createSlice({
@@ -11,13 +15,16 @@ export const DialogRedux = createSlice({
     initialState,
     reducers : {
         OpenDialog : (state, action) => {
-            const { modalType } = action.payload;
+            console.log(action);
+            const { modalType, items } = action.payload;
             state.visible = true;
             state.dialogType = modalType;
+            state.items = items;
         },
         CloseDialog : (state) => {
             state.visible = false;
             state.dialogType = '';
+            state.items = [];
         }
     }
 });

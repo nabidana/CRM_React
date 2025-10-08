@@ -35,4 +35,8 @@
     , "ClosingPhase" : "종료 단계"
     , "CalenderDetail" : "상세 일정 목록"
     , "AllDataLoadingComplete" : "모든 데이터 불러오기 완료"
+    , "MainMenu" : "메인 메뉴"
+    , "SubMenu" : "서브 메뉴"
+    , "AdminMenu" : "관리자 메뉴"
+    , "UserManagement" : "사용자 관리"
 }

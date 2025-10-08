@@ -1,5 +1,12 @@
 export type LocaleTypes = '' | 'ko' | 'en';
 
+export type menuGroupList = {
+    keyName : string;
+    labelName : string;
+    childList : meusList[];
+    element? : meusList;
+}
+
 export type meusList = {
     labelName : string;
     iconName : string;
@@ -13,4 +20,19 @@ export type filterList = {
 
 export type filterTagList = {
     
+}
+
+export type AuthTypes = '' | 'user' | 'admin' | 'guest';
+
+export type userType = {
+    id : string;
+    pwd : string;
+    auth? : AuthTypes;
+    loginstate? : boolean;
+}
+
+export type apiResultType = {
+    state : number;
+    msg : string;
+    result : any;
 }

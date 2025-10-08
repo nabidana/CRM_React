@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { RootState } from "./IndexRedux";
 import { MenuProps } from "antd";
-import { meusList } from "../global/GlobalTypes";
+import { menuGroupList, meusList } from "../global/GlobalTypes";
 
 // type to const
-const userMenuList : meusList[] = [];
+const userMenuList : menuGroupList[] = [];
 
 const initialState = {
     userMenuList : userMenuList
@@ -34,34 +34,58 @@ export const SelectApi = ( state : RootState ) => state.api;
 export default ApiRedux.reducer;
 
 // Async functions
-export const GetMenuItems = createAsyncThunk<meusList[], void>(
+export const GetMenuItems = createAsyncThunk<menuGroupList[], void>(
     'ApiRedux/GetMenuItems',
     async( _, {getState}) => {
-        const sideMenuList : meusList[] = [
+        const sideMenuList : menuGroupList[] = [
             {
-                labelName : 'Dashboard',
-                iconName : 'DashboardOutlined',
-                linkName : 'index'
+                keyName : 'None',
+                labelName : 'None',
+                childList : [],
+                element : {
+                    labelName : 'Dashboard',
+                    iconName : 'DashboardOutlined',
+                    linkName : 'index'
+                },
             },
             {
-                labelName : 'Deals',
-                iconName : 'DollarOutlined',
-                linkName : 'deals'
+                keyName : 'mains',
+                labelName : 'MainMenu',
+                childList : [
+                    {
+                        labelName : 'Deals',
+                        iconName : 'DollarOutlined',
+                        linkName : 'deals'
+                    },
+                    {
+                        labelName : 'Projects',
+                        iconName : 'ProjectOutlined',
+                        linkName : 'projects'
+                    },
+                    {
+                        labelName : 'Schedules',
+                        iconName : 'ScheduleOutlined',
+                        linkName : 'schedules'
+                    }
+                ]
             },
             {
-                labelName : 'Projects',
-                iconName : 'ProjectOutlined',
-                linkName : 'projects'
+                keyName : 'subs',
+                labelName : 'SubMenu',
+                childList : []
             },
             {
-                labelName : 'Schedules',
-                iconName : 'ScheduleOutlined',
-                linkName : 'schedules'
+                keyName : 'admins',
+                labelName : 'AdminMenu',
+                childList : [
+                    {
+                        labelName : 'UserManagement',
+                        iconName : 'UserSwitchOutlined',
+                        linkName : 'UserManagement',
+                    }
+                ]
             }
-        ];
-
-        //
-
+        ]
         return sideMenuList;
     }
     /* 실행하기전에 확인

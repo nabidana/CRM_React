@@ -3,8 +3,8 @@ import { Menu } from "antd";
 import { useTranslation } from "react-i18next";
 import { useCRMDispatch, useCRMSelector } from "../../redux/IndexRedux";
 import { GetMenuItems, SelectApi } from "../../redux/ApiRedux";
-import {  makeMenu } from "../../redux/ApiFunction/MenuFun";
 import { useLocation } from "react-router-dom";
+import { makeMenu } from "../../global/MenuFun";
 
 const CustomSideBar : React.FC = () => {
 

@@ -35,4 +35,8 @@
     , "ClosingPhase" : "Closing Phase"
     , "CalenderDetail" : "Calender Details"
     , "AllDataLoadingComplete" : "All data loading complete"
+    , "MainMenu" : "Main Menu"
+    , "SubMenu" : "Sub Menu"
+    , "AdminMenu" : "Admin Menu"
+    , "UserManagement" : "User Management"
 }

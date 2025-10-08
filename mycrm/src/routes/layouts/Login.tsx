@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import { useCRMDispatch } from "../../redux/IndexRedux";
 import { OpenDialog } from "../../redux/DialogRedux";
+import { DoLogin } from "../../redux/AuthRedux";
 
 const LoginLayout : React.FC = () => {
 
@@ -12,8 +13,6 @@ const LoginLayout : React.FC = () => {
     const localeChange = (value : string ) => {
         i18n.changeLanguage(value);
     }
-    // const { insertByDefault, functionResultFolderName } = useAppSelector(SelectFileCon);
-    // const dispatch = useAppDispatch();
     const dispatch = useCRMDispatch();
     const navigate = useNavigate();
 
@@ -128,7 +127,15 @@ const LoginLayout : React.FC = () => {
                             width : '80%',
                             fontSize : '130%'
                         }}
-                        onClick={() => navigate('/index')}
+                        onClick={ async() => {
+                            const usertype = await dispatch(DoLogin({
+                                id : '',
+                                pwd : '',
+                            })).unwrap();
+                            if(usertype !== ''){
+                                navigate('/index');
+                            }
+                        }}
                     >
                         {t("Login")}
                     </Button>

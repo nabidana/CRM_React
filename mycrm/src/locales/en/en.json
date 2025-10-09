@@ -39,4 +39,9 @@
     , "SubMenu" : "Sub Menu"
     , "AdminMenu" : "Admin Menu"
     , "UserManagement" : "User Management"
+    , "UserId" : "User Id"
+    , "UserName" : "User Name"
+    , "UserAuthType" : "User Auth Type"
+    , "UserActiveState" : "User Active State"
+    , "jobGrade" : "job Grade"
 }

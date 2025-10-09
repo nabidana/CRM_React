@@ -36,3 +36,14 @@ export type apiResultType = {
     msg : string;
     result : any;
 }
+
+export type activeStateType = '' | 'active' | 'enable' | 'lock' | 'wait';
+
+export type userDataType = {
+    key : string;
+    id : string;
+    name : string;
+    auth : AuthTypes;
+    activestate : activeStateType;
+    jobgrade : string;
+}

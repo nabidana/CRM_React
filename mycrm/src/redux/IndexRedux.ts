@@ -5,6 +5,7 @@ import localeRedux from './LocaleRedux';
 import dialogRedux from './DialogRedux';
 import apiRedux from './ApiRedux';
 import authRedux from './AuthRedux';
+import adminApiRedux from './AdminApiRedux';
 
 export const store = configureStore({
     reducer : {
@@ -12,6 +13,7 @@ export const store = configureStore({
         dialog : dialogRedux,
         api : apiRedux,
         auth : authRedux,
+        adminApi : adminApiRedux,
     },
     middleware : getDefaultMiddleware => getDefaultMiddleware({ serializableCheck : false })
 })

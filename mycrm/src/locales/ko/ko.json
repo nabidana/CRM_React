@@ -39,4 +39,9 @@
     , "SubMenu" : "서브 메뉴"
     , "AdminMenu" : "관리자 메뉴"
     , "UserManagement" : "사용자 관리"
+    , "UserId" : "사용자 ID"
+    , "UserName" : "사용자 이름"
+    , "UserAuthType" : "사용자 권한 유형"
+    , "UserActiveState" : "사용자 활성화 상태"
+    , "jobGrade" : "직급"
 }

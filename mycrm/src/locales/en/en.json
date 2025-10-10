@@ -43,5 +43,10 @@
     , "UserName" : "User Name"
     , "UserAuthType" : "User Auth Type"
     , "UserActiveState" : "User Active State"
-    , "jobGrade" : "job Grade"
+    , "JobGrade" : "Job Grade"
+    , "UserDetail" : "User Detail"
+    , "OtherInformation" : "Other Information"
+    , "DefaultInfo" : "Default Information"
+    , "TeamInfo" : "Team Information"
+    , "ProjectInfo" : "Project Information"
 }

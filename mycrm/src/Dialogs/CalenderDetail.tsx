@@ -7,7 +7,7 @@ import { useEffect } from "react";
 const CalenderDetail : React.FC = () => {
 
     const { t } = useTranslation();
-    const { visible, items } = useCRMSelector(SelectDialog);
+    const { visible, dayDataList } = useCRMSelector(SelectDialog);
     const dispatch = useCRMDispatch();
 
     const closeDialog = () => {
@@ -45,7 +45,7 @@ const CalenderDetail : React.FC = () => {
                     overflowY : 'auto'
                 }}
                 itemLayout="horizontal"
-                dataSource={items}
+                dataSource={dayDataList}
                 renderItem={(item, idx) => (
                     <List.Item key={item.id}>
                         <Space direction="vertical">

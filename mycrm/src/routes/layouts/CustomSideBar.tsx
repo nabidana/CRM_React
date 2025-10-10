@@ -22,6 +22,7 @@ const CustomSideBar : React.FC = () => {
     },[]);
 
     useEffect( () => {
+        console.log(location.pathname.substring(1));
         setSelectUrl(location.pathname.substring(1));
     },[location])
 

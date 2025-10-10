@@ -3,10 +3,12 @@ import CalenderDetail from "../Dialogs/CalenderDetail"
 import FindPwd from "../Dialogs/FindPwd"
 import { SelectDialog } from "../redux/DialogRedux"
 import { useCRMSelector } from "../redux/IndexRedux"
+import UserInfoDetail from "../Dialogs/UserInfoDetail"
 
 const DialogType = {
     FindPwdDialog : "FindPwdDialog",
     CalenderDetailDialog : "CalenderDetailDialog",
+    UserInfoDetailDialog : "UserInfoDetailDialog",
 }
 
 const DialogComponent = [
@@ -17,6 +19,10 @@ const DialogComponent = [
     {
         dialogType : DialogType.CalenderDetailDialog,
         component : <CalenderDetail />,
+    },
+    {
+        dialogType : DialogType.UserInfoDetailDialog,
+        component : <UserInfoDetail />,
     }
 ]
 

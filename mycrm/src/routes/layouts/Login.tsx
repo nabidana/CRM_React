@@ -132,7 +132,7 @@ const LoginLayout : React.FC = () => {
                                 id : '',
                                 pwd : '',
                             })).unwrap();
-                            if(usertype !== ''){
+                            if(usertype.auth !== ''){
                                 navigate('/index');
                             }
                         }}

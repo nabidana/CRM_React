@@ -1,3 +1,5 @@
+import { projectItemType } from "../routes/pages/Projects/ProjectsTypes";
+
 export type LocaleTypes = '' | 'ko' | 'en';
 
 export type menuGroupList = {
@@ -46,4 +48,21 @@ export type userDataType = {
     auth : AuthTypes;
     activestate : activeStateType;
     jobgrade : string;
+}
+
+export type userDataDetailType = {
+    defaultInfo : userDataType | undefined;
+    teamInfo : teamDataType | undefined;
+    projectInfo : projectItemType[];
+    otherInfo : string | undefined;
+}
+
+export type teamDataType = {
+    key : string;
+    name : string;
+}
+
+export type KeyLabelType = {
+    key : string;
+    label : string;
 }

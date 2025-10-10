@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { RootState } from "./IndexRedux";
-import { activeStateType, AuthTypes, userDataType, userType } from "../global/GlobalTypes";
+import { activeStateType, AuthTypes, userDataDetailType, userDataType, userType } from "../global/GlobalTypes";
 
 type initialStatetype = {
     userList : userDataType[];
@@ -57,6 +57,41 @@ export const GetUserItems = createAsyncThunk<userDataType[], void, {state : Root
         condition : ( _, {getState, extra}) => {
             const { userAuth } = getState().auth;
             return userAuth === 'admin' ? true : false;
+        }
+    }
+)
+
+export const GetUserDetailInfo = createAsyncThunk<userDataDetailType, userDataType | undefined, {state : RootState}>(
+    'AdminApiRedux/GetUserDetailInfo',
+    async( searchUser, {getState}) => {
+        const result : userDataDetailType = {
+            defaultInfo : searchUser,
+            teamInfo : {
+                key : 'team1',
+                name : 'Team 1-1'
+            },
+            projectInfo : [
+                {
+                    key : 'p1',
+                    title : 'test project 1',
+                    content : 'test test test',
+                    per : 100
+                },
+                {
+                    key : 'p2',
+                    title : 'test project 2',
+                    content : 'test test test',
+                    per : 70
+                }
+            ],
+            otherInfo : 'etc.... .... ...'
+        }
+
+        return result;
+    },
+    {
+        condition : (searchUser, {getState, extra}) => {
+            return searchUser === undefined ? false : true;
         }
     }
 )

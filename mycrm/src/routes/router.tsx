@@ -6,7 +6,7 @@ import DealsIndex from "./pages/Deals/DealsIndex";
 import ProjectsIndex from "./pages/Projects/ProjectsIndex";
 import Error404 from "./layouts/NotFound";
 import SchedulesIndex from "./pages/Schedule/SchedulesIndex";
-import UserManagement from "./pages/Admin/User/UserManagement";
+import UserManagementIndex from "./pages/Admin/User/UserManagementIndex";
 
 const router = createBrowserRouter([
     {
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
                 children : [
                     {
                         path : 'usermanagement',
-                        element : <UserManagement />,
+                        element : <UserManagementIndex />,
                     }
                 ]
             },

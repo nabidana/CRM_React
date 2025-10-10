@@ -77,7 +77,7 @@ const SchedulesIndex : React.FC = () => {
                     );
                     dispatch(OpenDialog({
                         modalType : 'CalenderDetailDialog',
-                        items : itemlist,
+                        dayDataList : itemlist,
                     }));
                 }}
                 cellRender={cellRender}

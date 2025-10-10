@@ -24,7 +24,7 @@ export const makeMenu = (menulist : menuGroupList[]) => {
             const isAdminMenu = userMenuVal.keyName === 'admins';
             const subMenuVal = userMenuVal.childList.map( (item) => {
                 return {
-                    key : item.linkName,
+                    key : (isAdminMenu ? 'admin/' : '') +item.linkName,
                     icon : getIcons(item.iconName),
                     label : ''+t(item.labelName),
                     onClick : () => {

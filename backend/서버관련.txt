@@ -1,0 +1,18 @@
+
+
+Main : Fast-Api
+Fast-API 는  Uvicorn 또는 Hypercorn 을 통해서 실행함
+Uvicorn 이빠름
+
+Fast-API : https://fastapi.tiangolo.com/ko/#_4
+Uvicorn : https://uvicorn.dev/
+
+실행 : uvicorn main:app --reload
+option : --reload : 스프링부트 = spring-boot-devtools 오토리로드
+
+swagger : http://127.0.0.1:8000/docs#/
+
+RDBMS jpa 처럼 테이블 세팅
+sqlmodel : https://sqlmodel.tiangolo.com/#installation
+
+

@@ -14,3 +14,8 @@ class UserRepository :
     async def test(self) -> List[User]:
         statement = select(User)
         return list(self.session.exec(statement).all())
+    
+    async def testinsert(self) :
+        TestUser = User(userId='t1', userPwd='t2')
+        self.session.add(TestUser)
+        return self.session.commit()

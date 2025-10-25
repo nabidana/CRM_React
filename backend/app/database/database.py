@@ -22,3 +22,6 @@ def create_db_and_tables() :
     print("Creating database tables...")
     SQLModel.metadata.create_all(engine)
     print("Database tables created successfully!")
+    
+def deleteAllDbTables() :
+    SQLModel.metadata.drop_all(engine)

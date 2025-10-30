@@ -16,3 +16,5 @@ RDBMS jpa 처럼 테이블 세팅
 sqlmodel : https://sqlmodel.tiangolo.com/#installation
 
 
+pychace 삭제
+윈도우 : for /d /r . %d in (__pycache__) do @if exist %d rd /s /q %d

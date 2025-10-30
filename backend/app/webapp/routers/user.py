@@ -12,4 +12,11 @@ async def index(
     userservice : UserService = Depends(dependency_userService)
 ) :
     print('들어옴')
-    return await userservice.test()
+    return await userservice.selectAll()
+
+@user.post('/test', tags=['user'])
+async def testing(
+    userservice : UserService = Depends(dependency_userService)
+) :
+    print('테스트중')
+    return await userservice.testing()

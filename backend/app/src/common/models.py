@@ -10,3 +10,10 @@ class CommonModel_SystemColumn(SQLModel) :
     createUserName : str | None
     updateDate : datetime = Field(default=datetime.now(timezone.utc))
     updateUserName : str | None
+
+# 사용여부 관리    
+class CommonModel_UsingColumn(SQLModel) :
+    
+    isActive : bool = Field(default=False)
+    isDelete : bool = Field(default=False)
+    

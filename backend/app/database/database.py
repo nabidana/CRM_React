@@ -3,7 +3,7 @@ from sqlmodel import create_engine, Session, SQLModel
 import os
 from dotenv import load_dotenv
 
-from src.user.models import User
+from src.user.models import *
 
 # 기본 .env 정보 가져오기
 load_dotenv()

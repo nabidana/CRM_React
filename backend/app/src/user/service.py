@@ -10,5 +10,8 @@ class UserService(CommonService) :
     async def selectAll(self) :
         return await self.repository.selectAll()
     
+    async def insertOne(self) :
+        return ''
+    
     async def testing(self) :
         return await self.repository.testinsert()

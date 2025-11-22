@@ -7,6 +7,7 @@ import { menuGroupList, meusList } from "../global/GlobalTypes";
 const userMenuList : menuGroupList[] = [];
 
 const initialState = {
+    sessionId : '',
     userMenuList : userMenuList
 }
 
@@ -102,4 +103,12 @@ export const GetMenuItems = createAsyncThunk<menuGroupList[], void>(
         }
     }
     */
+)
+
+export const GetSessionReady = createAsyncThunk<string, void>(
+    'ApiRedux/GetSessionReady',
+    async( _, {getState}) => {
+
+        return '';
+    }
 )

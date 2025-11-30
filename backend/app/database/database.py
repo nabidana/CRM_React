@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv
 
 from src.user.models import *
+from src.admin.models import *
 
 # 기본 .env 정보 가져오기
 load_dotenv()
@@ -40,6 +41,26 @@ def create_db_and_tables() :
     print("Creating database tables...")
     SQLModel.metadata.create_all(engine)
     print("Database tables created successfully!")
-    
+        
 def deleteAllDbTables() :
     SQLModel.metadata.drop_all(engine)
+    
+def db_defaultinfo_insert() :
+    """
+    기본 정보들 insert문 쿼리
+    """
+    usertype_user = UserType(typeName="사용자", typeDescription="일반 사용자 유형", createUserName="초기설정", updateUserName="초기설정")
+    usertype_admin = UserType(typeName="관리자", typeDescription="일반 관리자 유형", createUserName="초기설정", updateUserName="초기설정")
+    
+    userstate_waitaith = UserState(seqId=0, stateName="인증대기", stateDescription="사용자 본인 인증 전 단계로 가입 전 대기 상태", createUserName="초기설정", updateUserName="초기설정")
+    userstate_waitcreate = UserState(seqId=1, stateName="가입대기", stateDescription="사용자 본인 인증 후 단계로 가입 신청 후, 관리자 승인 대기 상태", createUserName="초기설정", updateUserName="초기설정")
+    userstate_createsuccess = UserState(seqId=2, stateName="활성화", stateDescription="사용자 가입 완료 후, 활성화 상태", createUserName="초기설정", updateUserName="초기설정")
+    userstate_dormant = UserState(seqId=3, stateName="휴면", stateDescription="휴면 상태", createUserName="초기설정", updateUserName="초기설정")
+    userstate_leave = UserState(seqId=4, stateName="탈퇴", stateDescription="가입 탈퇴 상태", createUserName="초기설정", updateUserName="초기설정")
+    
+    adminconfig_userinit = AdminConfig(seqId=0, configCodeVal="")
+    
+    with Session(engine) as session :
+        session.add_all([ usertype_user, usertype_admin ])
+        session.add_all([ userstate_waitaith, userstate_waitcreate, userstate_createsuccess, userstate_dormant, userstate_leave ])
+        session.commit()

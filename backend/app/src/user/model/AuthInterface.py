@@ -10,10 +10,13 @@ class AuthModel(SQLModel) :
     - authName : 권한명
     - authDescription : 권한설명
     """
-    seqId : Optional[int] = Field(default=None, primary_key=True)
-    authCode : str = Field(default=None, unique=True)
-    authName : str
-    authDescription : str | None
+    seqId : int | None = Field(default=None, primary_key=True)
+    authCode : str | None = Field(nullable=False, unique=True
+        , sa_column_kwargs={"comment" : "권한 코드"})
+    authName : str | None = Field(nullable=False
+        , sa_column_kwargs={"comment" : "권한명"})
+    authDescription : str | None = Field(default=None
+        , sa_column_kwargs={"comment" : "권한 설명"})
     # userauthlinks : list["UserAuthModel"] = Relationship(
     #     back_populates="authlinks", link_model=UserAuthLinkAuthModel
     # )

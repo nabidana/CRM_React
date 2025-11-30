@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, Depends
 
 from webapp.routers.user import user
-from database.database import create_db_and_tables, deleteAllDbTables
+from database.database import create_db_and_tables, deleteAllDbTables, db_defaultinfo_insert
 from dependencies.dependency import dependency_userService
 from src.user.service import UserService
 
@@ -12,8 +12,10 @@ from src.user.service import UserService
 @asynccontextmanager
 async def lifespan(app : FastAPI) :
     
+    deleteAllDbTables()
     print("Startup: Creating database tables...")
     create_db_and_tables()
+    db_defaultinfo_insert()
     # 앱 종료시 실행
     yield
     deleteAllDbTables()

@@ -9,6 +9,7 @@ from redis.commands.json.path import Path
 from webapp.session.session import get_redis
 
 from src.user.service import UserService
+from src.user.model.UserInterface import UserModel
 from dependencies.dependency import dependency_userService
 
 user = APIRouter(prefix='/user')
@@ -22,6 +23,7 @@ async def index(
 
 @user.post('/test', tags=['user'])
 async def testing(
+    data : UserModel,
     userservice : UserService = Depends(dependency_userService)
 ) :
     print('테스트중')
